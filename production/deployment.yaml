@@ -27,20 +27,11 @@ spec:
         image: harbor.company.local:8443/backend/backend:1.0.0
 
         imagePullPolicy: Always
-
+        
         ports:
         - containerPort: 8234
-
-        resources:
-          requests:
-            cpu: 100m
-            memory: 256Mi
-
-          limits:
-            cpu: 500m
-            memory: 512Mi
-            
-      env:
+        
+              env:
       - name: DB_CONNECTION_STRING
           valueFrom:
             secretKeyRef:
@@ -70,3 +61,12 @@ spec:
             configMapKeyRef:
               name: backend-config
               key: ASPNETCORE_ENVIRONMENT
+              
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+
+          limits:
+            cpu: 500m
+            memory: 512Mi        
