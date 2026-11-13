@@ -1,5 +1,7 @@
 resources:
 - namespace.yaml
+- backend-secret.yaml
+- backend-configmap.yaml
 - deployment.yaml
 - service.yaml
 - ingress.yaml

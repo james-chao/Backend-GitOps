@@ -39,3 +39,34 @@ spec:
           limits:
             cpu: 500m
             memory: 512Mi
+            
+      env:
+      - name: DB_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: DB_CONNECTION_STRING
+
+      - name: JWT_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: JWT_SECRET_KEY
+
+      - name: JWT_ISSUER
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: JWT_ISSUER
+
+      - name: JWT_AUDIENCE
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: JWT_AUDIENCE
+
+      - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: ASPNETCORE_ENVIRONMENT
