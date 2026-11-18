@@ -17,7 +17,7 @@ spec:
       - name: harbor-secret
       containers:
       - name: backend
-        image: harbor.company.local:8443/backend/backend:59d4512
+        image: harbor.company.local:8443/backend/backend:18bbd3c
         imagePullPolicy: Always
         ports:
         - containerPort: 8234
